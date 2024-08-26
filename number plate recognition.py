@@ -17,14 +17,14 @@ min_area = 500
 count = 0
 
 # Ensure the directory exists
-if not os.path.exists("plates"):
-    os.makedirs("plates")
+if not os.path.exists("D:/higher study/project/car number plate recognition/plates"):
+    os.makedirs("D:/higher study/project/car number plate recognition/plates")
 
 while True:
-    success, img = cap.read()
+    success, image = cap.read()
 
     # Convert the image to grayscale
-    img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    img_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
     # Detect plates in the image
     plates = plate_cascade.detectMultiScale(img_gray, 1.2, 10)
@@ -35,24 +35,24 @@ while True:
 
         if area > min_area:
             # Draw a rectangle around the detected plate
-            cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 2)
+            cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
             # Label the detected area as "Number Plate"
-            cv2.putText(img, "Number Plate", (x, y - 5), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (255, 0, 255), 2)
+            cv2.putText(image, "Number Plate", (x, y - 5), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (255, 0, 255), 2)
 
             # Extract the region of interest (ROI)
-            img_roi = img[y: y + h, x: x + w]
+            img_roi = image[y: y + h, x: x + w]
             cv2.imshow("ROI", img_roi)
 
     # Display the result
-    cv2.imshow("Result", img)
+    cv2.imshow("Result", image)
 
     # Break the loop when 's' is pressed
     key = cv2.waitKey(1) & 0xFF
     if key == ord('s') and img_roi is not None:
-        cv2.imwrite("plates/scaned_img_" + str(count) + ".jpg", img_roi)
-        cv2.rectangle(img, (0, 200), (640, 300), (0, 255, 0), cv2.FILLED)
-        cv2.putText(img, "Plate Saved", (150, 265), cv2.FONT_HERSHEY_COMPLEX_SMALL, 2, (0, 0, 255), 2)
-        cv2.imshow("Results", img)
+        cv2.imwrite("D:/higher study/project/car number plate recognition/plates/scaned_img_" + str(count) + ".jpg", img_roi)
+        cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
+        cv2.putText(image, "Plate Saved", (150, 265), cv2.FONT_HERSHEY_COMPLEX_SMALL, 2, (0, 0, 255), 2)
+        cv2.imshow("Results", image)
         cv2.waitKey(500)
         count += 1
     elif key == ord('q'):
