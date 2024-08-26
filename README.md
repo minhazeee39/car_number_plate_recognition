@@ -7,30 +7,16 @@ Number Plate Detection: Uses Haar Cascades to detect number plates in the video 
 Optical Character Recognition (OCR): Utilizes Tesseract OCR to extract text from detected number plates.
 Save Detected Plates: Allows the user to save images of detected number plates and the recognized text.
 Customizable Video Feed: The size and position of the video feed window can be adjusted, and the window is set to always be on top.
-Installation
-Clone the repository:
-
-# bash
-Copy code
-git clone https://github.com/minhazeee39/car-number-plate-recognition.git
-cd car-number-plate-recognition
+# Installation
 Install the required packages:
-
-# bash
-Copy code
 pip install opencv-python pytesseract
 Install Tesseract OCR:
-
-# Download and install Tesseract-OCR from here.
+Download and install Tesseract-OCR.
 Add the Tesseract executable path to your system's PATH environment variable.
 Download the Haar Cascade for Russian Plate Number Detection:
 
 Ensure that the Haar Cascade file (haarcascade_russian_plate_number.xml) is in the correct directory.
 Usage
-Run the script:
-
-bash
-Copy code
 python car_plate_recognition.py
 Interact with the live video feed:
 
