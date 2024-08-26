@@ -1,4 +1,3 @@
-# car_number_plate_recognition
 # Car Number Plate Recognition
 This project is a Python-based implementation of car number plate recognition using OpenCV and Tesseract OCR. The system captures video from a webcam, detects car number plates using Haar Cascades, and performs Optical Character Recognition (OCR) to extract the text from the detected plates. The extracted text can be saved and processed further, such as storing it in a CSV file for record-keeping.
 
