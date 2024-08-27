@@ -67,7 +67,7 @@ while True:
         #cv2.destroyAllWindows()
         
 
-        # Extract the text
+        # Extract the text and print in terminal, plan to save in csv
         image_roi_gray = cv2.cvtColor(img_roi, cv2.COLOR_BGR2GRAY)
         text = pytesseract.image_to_string(image_roi_gray)
         print(text)
